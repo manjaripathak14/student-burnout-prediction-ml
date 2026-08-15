@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Burnout Predictor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🌿 MindMeter
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#about">About</a>
+
+        <a href="#assessment">
+            Assessment
+        </a>
+
+        <a href="#how-it-works">
+            How It Works
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+
+    <div class="hero-text">
+
+        <span class="badge">
+            🤖 Machine Learning Based
+        </span>
+
+
+        <h1>
+
+            Understand Your
+
+            <span>
+                Student Wellbeing
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Explore how your social media habits,
+            sleep, academic life and mental wellbeing
+            may influence your overall impact.
+
+        </p>
+
+
+        <a href="#assessment"
+           class="hero-button">
+
+            Start Assessment →
+
+        </a>
+
+    </div>
+
+
+
+    <div class="hero-visual">
+
+
+        <div class="circle">
+            🧠
+        </div>
+
+
+        <div class="floating-card card-one">
+
+            📱 Social Media
+
+            <strong>
+                Usage
+            </strong>
+
+        </div>
+
+
+        <div class="floating-card card-two">
+
+            💤 Sleep
+
+            <strong>
+                Pattern
+            </strong>
+
+        </div>
+
+
+        <div class="floating-card card-three">
+
+            🎓 Academic
+
+            <strong>
+                Impact
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features"
+         id="about">
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            📱
+        </div>
+
+        <h3>
+            Social Media
+        </h3>
+
+        <p>
+
+            Tell us about your daily usage
+            and most-used platform.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🛌
+        </div>
+
+        <h3>
+            Sleep Pattern
+        </h3>
+
+        <p>
+
+            Sleep duration is considered
+            as one of the factors in prediction.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🧠
+        </div>
+
+        <h3>
+            Mental Wellbeing
+        </h3>
+
+        <p>
+
+            Add your mental health score
+            to make the prediction personalized.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🎓
+        </div>
+
+        <h3>
+            Academic Impact
+        </h3>
+
+        <p>
+
+            Tell us whether social media
+            affects your academic performance.
+
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= ASSESSMENT ================= -->
+
+<section class="assessment-section"
+         id="assessment">
+
+
+    <div class="section-heading">
+
+
+        <span class="small-heading">
+            YOUR INFORMATION
+        </span>
+
+
+        <h2>
+            Let's understand your lifestyle
+        </h2>
+
+
+        <p>
+
+            Enter the information below.
+            Your answers will be processed
+            by our machine learning model.
+
+        </p>
+
+
+    </div>
+
+
+
+    <!-- IMPORTANT -->
+    <!-- FORM NOW SENDS DATA TO FLASK -->
+
+    <form class="assessment-form"
+          method="POST"
+          action="/predict">
+
+
+        <!-- ================= ABOUT YOU ================= -->
+
+        <div class="form-section">
+
+
+            <div class="form-section-title">
+
+                <span>
+                    👤
+                </span>
+
+
+                <div>
+
+                    <h3>
+                        About You
+                    </h3>
+
+                    <p>
+                        Basic information about yourself
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <!-- AGE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Age
+                    </label>
+
+
+                    <input
+                        type="number"
+                        name="age"
+                        min="10"
+                        max="100"
+                        placeholder="e.g. 20"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- GENDER -->
+
+                <div class="input-group">
+
+                    <label>
+                        Gender
+                    </label>
+
+
+                    <select
+                        name="gender"
+                        required
+                    >
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- ACADEMIC LEVEL -->
+
+                <div class="input-group">
+
+                    <label>
+                        Academic Level
+                    </label>
+
+
+                    <select
+                        name="academic_level"
+                        required
+                    >
+
+                        <option value="">
+                            Select Academic Level
+                        </option>
+
+                        <option value="High School">
+                            High School
+                        </option>
+
+                        <option value="Undergraduate">
+                            Undergraduate
+                        </option>
+
+                        <option value="Graduate">
+                            Graduate
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- COUNTRY -->
+
+                <div class="input-group">
+
+                    <label>
+                        Country
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="country"
+                        placeholder="e.g. India"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= SOCIAL MEDIA ================= -->
+
+        <div class="form-section">
+
+
+            <div class="form-section-title">
+
+                <span>
+                    📱
+                </span>
+
+
+                <div>
+
+                    <h3>
+                        Social Media Habits
+                    </h3>
+
+                    <p>
+                        Tell us about your social media usage
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <!-- USAGE -->
+
+                <div class="input-group">
+
+                    <label>
+                        Average Daily Usage
+                    </label>
+
+
+                    <div class="input-with-unit">
+
+
+                        <input
+                            type="number"
+                            name="social_media_usage"
+                            min="0"
+                            max="24"
+                            step="0.1"
+                            placeholder="e.g. 5.5"
+                            required
+                        >
+
+
+                        <span>
+                            hours
+                        </span>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PLATFORM -->
+
+                <div class="input-group">
+
+                    <label>
+                        Most Used Platform
+                    </label>
+
+
+                    <select
+                        name="platform"
+                        required
+                    >
+
+                        <option value="">
+                            Select Platform
+                        </option>
+
+                        <option value="Facebook">
+                            Facebook
+                        </option>
+
+                        <option value="Instagram">
+                            Instagram
+                        </option>
+
+                        <option value="WhatsApp">
+                            WhatsApp
+                        </option>
+
+                        <option value="YouTube">
+                            YouTube
+                        </option>
+
+                        <option value="LinkedIn">
+                            LinkedIn
+                        </option>
+
+                        <option value="Twitter">
+                            Twitter
+                        </option>
+
+                        <option value="TikTok">
+                            TikTok
+                        </option>
+
+                        <option value="Snapchat">
+                            Snapchat
+                        </option>
+
+                        <option value="LINE">
+                            LINE
+                        </option>
+
+                        <option value="WeChat">
+                            WeChat
+                        </option>
+
+                        <option value="VKontakte">
+                            VKontakte
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- ACADEMIC EFFECT -->
+
+                <div class="input-group full-width">
+
+                    <label>
+
+                        Does social media affect
+                        your academic performance?
+
+                    </label>
+
+
+                    <div class="choice-container">
+
+
+                        <label class="choice">
+
+                            <input
+                                type="radio"
+                                name="social_media_effect"
+                                value="Yes"
+                                required
+                            >
+
+                            <span>
+                                Yes
+                            </span>
+
+                        </label>
+
+
+
+                        <label class="choice">
+
+                            <input
+                                type="radio"
+                                name="social_media_effect"
+                                value="No"
+                            >
+
+                            <span>
+                                No
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= WELLBEING ================= -->
+
+        <div class="form-section">
+
+
+            <div class="form-section-title">
+
+                <span>
+                    🧠
+                </span>
+
+
+                <div>
+
+                    <h3>
+                        Wellbeing
+                    </h3>
+
+                    <p>
+                        Your sleep and mental wellbeing
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <!-- SLEEP -->
+
+                <div class="input-group">
+
+                    <label>
+                        Sleep Hours Per Night
+                    </label>
+
+
+                    <div class="input-with-unit">
+
+
+                        <input
+                            type="number"
+                            name="sleep_hours"
+                            min="0"
+                            max="24"
+                            step="0.1"
+                            placeholder="e.g. 7.5"
+                            required
+                        >
+
+
+                        <span>
+                            hours
+                        </span>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MENTAL HEALTH -->
+
+                <div class="input-group">
+
+                    <label>
+                        Mental Health Score (0–10)
+                    </label>
+
+
+                    <div class="score-input">
+
+
+                        <input
+                            type="number"
+                            name="mental"
+                            min="0"
+                            max="10"
+                            step="0.1"
+                            placeholder="e.g. 7.5"
+                            required
+                        >
+
+
+                        <span>
+                            / 10
+                        </span>
+
+
+                    </div>
+
+
+                    <small class="score-note">
+
+                        This score is a model input
+                        and is not a medical diagnosis.
+
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ================= SCORE HELP ================= -->
+
+            <div class="score-help">
+
+
+                <div class="help-icon">
+                    💡
+                </div>
+
+
+                <div>
+
+
+                    <strong>
+
+                        Not sure about your
+                        wellbeing score?
+
+                    </strong>
+
+
+                    <p>
+
+                        You can take a wellbeing
+                        self-check to reflect on
+                        how you've been feeling.
+
+                    </p>
+
+
+                    <!-- REAL LINK -->
+
+                    <a
+                        href="https://www.keepingwellnwl.nhs.uk/self-help-resources/self-assessment-questionnaires"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="link-button"
+                    >
+
+                        Take a wellbeing self-check →
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================= PREDICT ================= -->
+
+        <div class="predict-container">
+
+
+            <button
+                type="submit"
+                class="predict-button"
+            >
+
+                🔮 Predict My Overall Impact
+
+            </button>
+
+
+            <p>
+
+                Your information will be used
+                to generate the prediction.
+
+            </p>
+
+
+        </div>
+
+
+    </form>
+
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-section"
+         id="how-it-works">
+
+
+    <div class="section-heading">
+
+
+        <span class="small-heading">
+            HOW IT WORKS
+        </span>
+
+
+        <h2>
+            From your answers to a prediction
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                You enter your details
+            </h3>
+
+            <p>
+
+                Lifestyle, social media
+                and wellbeing information
+                is collected.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Data is processed
+            </h3>
+
+            <p>
+
+                Your responses are converted
+                into the format expected
+                by the ML model.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                ML model predicts
+            </h3>
+
+            <p>
+
+                A trained Random Forest
+                classifier predicts the
+                overall impact.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                You get your result
+            </h3>
+
+            <p>
+
+                The predicted impact is
+                displayed clearly.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+
+    <div class="footer-logo">
+        🌿 MindMeter
+    </div>
+
+
+    <p>
+
+        Student Burnout Prediction •
+        Machine Learning Project
+
+    </p>
+
+
+    <p class="disclaimer">
+
+        This project is for educational purposes
+        and is not a medical diagnosis.
+
+    </p>
+
+
+</footer>
+
+
+</body>
+
+</html>
