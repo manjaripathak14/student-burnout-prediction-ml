@@ -13,6 +13,11 @@ Students' social media usage, sleep patterns, mental health, and academic perfor
 The aim of this project is to use Machine Learning to identify the possible overall impact on a student based on factors such as social media usage, sleep, mental health score, academic level, and other related information.
 
 ---
+## 🌐 Live Demo
+
+Try the deployed web application here:
+
+👉 https://student-burnout-prediction-ml-1.onrender.com/
 
 ## Dataset
 
